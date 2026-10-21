@@ -1,224 +1,140 @@
-    document.addEventListener('DOMContentLoaded', () => {
-        // ANIMATION DES LETTRES
-        document.querySelectorAll('.letter').forEach(letter => {
-            letter.addEventListener('mouseenter', function() {
-                if (!this.classList.contains('animate')) {
-                    this.classList.add('animate');
-                    setTimeout(() => {
-                        this.classList.remove('animate');
-                    }, 600);
-                }
-            });
-        });
+const WORKER_URL = "https://api.worker.mm-cp.uk";
+const MORGANN_USER_UID = "VeVYHd5ql8e4WuAnSUoM9TegEgM2";
 
-        // ANIMATION DU GRADIENT (HERO TEXT)
-        const animationZone = document.querySelector('.hero-text2');
-        const animatedText = document.querySelector('.highlight');
+document.addEventListener("DOMContentLoaded", () => {
+    fetchArtistInfo();
+    fetchReleases();
+});
 
-        // Vérifie si les éléments existent avant de continuer
-        if (animationZone && animatedText) {
+function formatImageUrl(url) {
+    if (!url) return "";
+    const cleanUrl = url.trim();
+    if (cleanUrl.startsWith("http://") || cleanUrl.startsWith("https://") || cleanUrl.startsWith("data:")) {
+        return cleanUrl;
+    }
+    const relativePath = cleanUrl.replace(/^\/+/, '');
+    if (relativePath.startsWith('api/files/')) {
+        return `${WORKER_URL}/${relativePath}`;
+    }
+    return `${WORKER_URL}/api/files/${encodeURIComponent(relativePath)}`;
+}
 
-            // Récupération des couleurs CSS une seule fois
-            const colorStart = getComputedStyle(document.documentElement).getPropertyValue('--light-color-start').trim();
-            const colorEnd = getComputedStyle(document.documentElement).getPropertyValue('--light-color-end').trim();
+async function fetchArtistInfo() {
+    try {
+        const response = await fetch(`${WORKER_URL}/api/artists`);
+        if (!response.ok) return;
 
-            // Événement au mouvement de la souris
-            animationZone.addEventListener('mousemove', (e) => {
-                const rect = animationZone.getBoundingClientRect();
+        const data = await response.json();
+        const artists = data.artists || [];
+        const mmArtist = artists.find(a => a.id === 1 || a.userUid === MORGANN_USER_UID || a.name === "Morgann Music");
 
-                // Calcule la position X relative dans le conteneur
-                const x = e.clientX - rect.left;
-                const percentage = (x / rect.width) * 100;
-
-                // Met à jour le dégradé (avec la "fenêtre" de lumière de 40%)
-                animatedText.style.background = `linear-gradient(90deg, ${colorStart} ${percentage - 20}%, ${colorEnd} ${percentage + 20}%)`;
-
-                // Sécurité : Maintenir le clip textuel (même si le CSS devrait le faire)
-                animatedText.style.webkitBackgroundClip = 'text';
-                animatedText.style.webkitTextFillColor = 'transparent';
-            });
-
-            // Événement lorsque la souris quitte la zone (CORRECTION DU BUG)
-            animationZone.addEventListener('mouseleave', () => {
-                // 1. Réinitialiser la couleur/dégradé à la valeur statique (0% et 100%)
-                animatedText.style.background = `linear-gradient(90deg, ${colorStart} 0%, ${colorEnd} 100%)`;
-
-                // 2. Réaffirmer les propriétés de clip textuel
-                animatedText.style.webkitBackgroundClip = 'text';
-                animatedText.style.webkitTextFillColor = 'transparent';
-
-                // 3. (Facultatif) Annuler la transformation de mise à l'échelle si elle était appliquée via JS
-                // Note: Vous gérez déjà le scale via :hover en CSS, donc cette ligne est facultative/inutile
-                // si vous vous en tenez à la solution CSS.
-                // animatedText.style.transform = 'scale(1)'; 
-            });
-
+        if (mmArtist && mmArtist.description) {
+            document.getElementById("artist-description").innerText = mmArtist.description;
         } else {
-            console.error("Erreur: Les éléments .hero-text2 ou .highlight n'ont pas été trouvés dans le DOM.");
+            document.getElementById("artist-description").innerText = "Bienvenue dans l'univers musical de Morgann Music.";
+        }
+    } catch (err) {
+        document.getElementById("artist-description").innerText = "Bienvenue dans l'univers musical de Morgann Music.";
+    }
+}
+
+function renderCoverMedia(release, imgElId, motionElId, skeletonId) {
+    const imgEl = document.getElementById(imgElId);
+    const motionEl = document.getElementById(motionElId);
+    const skeletonEl = document.getElementById(skeletonId);
+
+    const animatedUrlRaw = release.animatedCoverUrl || release.animated_cover_url || release.appleMotion11 || release.appleMotion34;
+    const coverUrlRaw = release.coverUrl || release.cover_url;
+
+    const animatedUrl = formatImageUrl(animatedUrlRaw);
+    const coverUrl = formatImageUrl(coverUrlRaw);
+
+    if (animatedUrl) {
+        motionEl.src = animatedUrl;
+        motionEl.classList.remove("hidden");
+        motionEl.addEventListener('loadeddata', () => {
+            if (skeletonEl) skeletonEl.style.display = "none";
+        }, { once: true });
+    } else if (coverUrl) {
+        imgEl.src = coverUrl;
+        imgEl.classList.remove("hidden");
+        if (skeletonEl) skeletonEl.style.display = "none";
+    }
+}
+
+async function fetchReleases() {
+    try {
+        const response = await fetch(`${WORKER_URL}/api/releases`);
+        if (!response.ok) return;
+
+        const data = await response.json();
+        const releases = data.releases || [];
+
+        const mmReleases = releases.filter(r =>
+            r.userUid === MORGANN_USER_UID ||
+            r.userId === MORGANN_USER_UID ||
+            (r.artistName && r.artistName.toLowerCase() === "morgann music")
+        );
+
+        const now = new Date();
+
+        const past = mmReleases
+            .filter(r => r.releaseDate && new Date(r.releaseDate) <= now)
+            .sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+
+        const future = mmReleases
+            .filter(r => r.releaseDate && new Date(r.releaseDate) > now)
+            .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+
+        // Injecter Dernière Sortie
+        if (past.length > 0) {
+            const last = past[0];
+            document.getElementById("last-title").innerText = last.title || "Sans titre";
+            document.getElementById("last-artist").innerText = last.artistName || "Morgann Music";
+
+            renderCoverMedia(last, "last-cover", "last-motion", "last-cover-skeleton");
+
+            if (last.spotifyUrl) {
+                const btnSp = document.getElementById("last-spotify");
+                btnSp.href = last.spotifyUrl;
+                btnSp.classList.remove("hidden");
+            }
+
+            if (last.appleUrl) {
+                const btnAp = document.getElementById("last-apple");
+                btnAp.href = last.appleUrl;
+                btnAp.classList.remove("hidden");
+            }
+        } else {
+            document.getElementById("last-release-section").style.display = "none";
         }
 
-        const infoBouton = document.querySelector('.info-bouton');
-        if (infoBouton) {
-            infoBouton.addEventListener('click', function() {
-                infoBouton.classList.toggle('ouvert');
-            });
-        }
-    
-            // 1. Sélectionner tous les éléments à animer
-            const elementsToAnimate = document.querySelectorAll('.titre-page, .service-card, .page-card');
+        // Injecter Prochaine Sortie
+        if (future.length > 0) {
+            const next = future[0];
+            const dateObj = new Date(next.releaseDate);
 
-            // 2. Définir les options de l'observateur
-            const observerOptions = {
-                root: null, // Par défaut, la fenêtre d'affichage (viewport)
-                rootMargin: '0px', // Marge autour du viewport
-                threshold: 0.1 // Déclencheur : 10% de l'élément doit être visible
-            };
+            document.getElementById("next-title").innerText = next.title || "Sans titre";
+            document.getElementById("next-artist").innerText = next.artistName || "Morgann Music";
 
-            // 3. La fonction à exécuter lorsque l'élément est vu (ou n'est plus vu)
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // L'élément est dans le viewport : on ajoute la classe 'visible'
-                        entry.target.classList.add('visible');
+            renderCoverMedia(next, "next-cover", "next-motion", "next-cover-skeleton");
 
-                        // Optionnel : on arrête de l'observer pour ne pas redéclencher l'animation
-                        observer.unobserve(entry.target);
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                    // else {
-                    //   Si on voulait que l'animation se répète en sortant/rentrant, on ajouterait ici entry.target.classList.remove('visible');
-                    // }
-                });
-            };
+            const months = ["JANVIER", "FÉVRIER", "MARS", "AVRIL", "MAI", "JUIN", "JUILLET", "AOÛT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DÉCEMBRE"];
+            document.getElementById("next-day").innerText = dateObj.getDate();
+            document.getElementById("next-month").innerText = months[dateObj.getMonth()];
+            document.getElementById("next-year").innerText = dateObj.getFullYear();
+            document.getElementById("next-date-box").classList.remove("hidden");
 
-            // 4. Créer l'observateur
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-            // 5. Attacher l'observateur à chaque élément
-            elementsToAnimate.forEach(element => {
-                observer.observe(element);
-            });
-    }); // Fin du DOMContentLoaded principal
-
-    
-        function lancerConfettis(nb = 300) {
-            const canvas = document.getElementById('confetti-canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const confettis = [];
-            const groundY = canvas.height;
-            let animationId;
-
-            for (let i = 0; i < nb; i++) {
-                confettis.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * -canvas.height,
-                    r: Math.random() * 6 + 4,
-                    d: Math.random() * nb,
-                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-                    tilt: Math.random() * 10 - 10,
-                    tiltAngleIncremental: Math.random() * 0.07 + 0.05,
-                    tiltAngle: 0,
-                    speed: Math.random() * 2 + 2,
-                    landed: false
-                });
-            }
-
-            let fadeOutStarted = false;
-            let textOpacity = 1;
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                confettis.forEach(c => {
-                    if (fadeOutStarted) ctx.globalAlpha = alpha;
-                    ctx.beginPath();
-                    ctx.lineWidth = c.r / 2;
-                    ctx.strokeStyle = c.color;
-                    ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
-                    ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 4);
-                    ctx.stroke();
-                });
-
-                if (!fadeOutStarted) {
-                    update();
-                    animationId = requestAnimationFrame(animate);
-                } else {
-                    fadeOutStep();
-                }
-            }
-
-            function update() {
-                let allLanded = true;
-                confettis.forEach(c => {
-                    if (!c.landed) {
-                        c.tiltAngle += c.tiltAngleIncremental;
-                        c.y += c.speed;
-                        c.tilt = Math.sin(c.tiltAngle) * 15;
-                        if (c.y >= groundY - c.r) {
-                            c.y = groundY - c.r;
-                            c.speed = 0;
-                            c.landed = true;
-                        } else {
-                            allLanded = false;
-                        }
-                    }
-                });
-
-                if (allLanded && !fadeOutStarted) {
-                    fadeOutConfettis();
-                }
-            }
-
-            animationId = requestAnimationFrame(animate);
-
-            setTimeout(() => {
-                const overlay = document.getElementById('newyear-overlay');
-                if (overlay) overlay.style.backdropFilter = "blur(0px)";
-                document.body.classList.remove('no-scroll');
-
-                const fadeText = setInterval(() => {
-                    textOpacity -= 0.02;
-                    const textDiv = document.querySelector('.newyear-text');
-                    if (textDiv) textDiv.style.opacity = textOpacity;
-                    if (textOpacity <= 0) clearInterval(fadeText);
-                }, 20);
-
-            }, 3000);
-
-            const closeBtn = document.getElementById('close-overlay');
-            closeBtn.addEventListener('click', () => {
-                cancelAnimationFrame(animationId);
-                const overlay = document.getElementById('newyear-overlay');
-                if (overlay) overlay.remove();
-                document.body.classList.remove('no-scroll');
-            });
-
-            let alpha = 1;
-            function fadeOutConfettis() {
-                fadeOutStarted = true;
-            }
-
-            function fadeOutStep() {
-                alpha -= 0.01;
-                if (alpha <= 0) {
-                    cancelAnimationFrame(animationId);
-                    const overlay = document.getElementById('newyear-overlay');
-                    if (overlay) overlay.remove();
-                } else {
-                    animate();
-                }
-            }
+            const gcalTitle = encodeURIComponent(`${next.title} - ${next.artistName}`);
+            const gcalDate = dateObj.toISOString().replace(/-|:|\.\d\d\d/g, "");
+            const btnGcal = document.getElementById("next-gcal");
+            btnGcal.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gcalTitle}&dates=${gcalDate}/${gcalDate}`;
+            btnGcal.classList.remove("hidden");
+        } else {
+            document.getElementById("next-release-section").style.display = "none";
         }
 
-        // Initialisation de l'animation de confettis si l'overlay est présent
-        window.addEventListener('load', () => {
-            const newYearOverlay = document.getElementById('newyear-overlay');
-            if (newYearOverlay) {
-                document.body.classList.add('no-scroll'); // bloque le scroll pendant l'animation
-                lancerConfettis(300);
-            }
-        });
+    } catch (err) {
+        console.error("Erreur de récupération des données :", err);
+    }
+}

@@ -1,148 +1,151 @@
-    :root {
-        --bg-nb: #e0ffd600;
-        --nbscr: #e0ffd6b3;
-        --nbscrop: #e0ffd6;
-        --lnbscr: rgba(78, 148, 71, 0.729);
-        --text-color3: #ffffff;
-        --text-color2: #000000
+:root {
+    --bg-nb: rgba(240, 248, 250, 0);
+    --nbscr: rgba(224, 244, 248, 0.75);
+    --nbscrop: #e0f4f8;
+    --lnbscr: rgba(43, 174, 199, 0.25);
+    --text-color: #172d33;
+    --accent-blue: #2baec7;
+}
+
+.navbar- {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-nb);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+}
+
+.navbar-:hover {
+    background: var(--nbscr);
+    box-shadow: 0 8px 30px rgba(43, 174, 199, 0.12);
+    margin-top: 10px;
+    margin-left: 1%;
+    width: 98%;
+    border-radius: 50px;
+    border: 1px solid var(--lnbscr);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.navbar-.scrolled {
+    background: var(--nbscr);
+    box-shadow: 0 10px 30px rgba(43, 174, 199, 0.15);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-bottom: 1px solid var(--lnbscr);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+.navbar-.scrolled:hover {
+    box-shadow: 0 12px 35px rgba(43, 174, 199, 0.2);
+    margin-top: 10px;
+    margin-left: 0.5%;
+    width: 99%;
+    border-radius: 50px;
+    border: 1px solid var(--lnbscr);
+}
+
+.navbar- nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+}
+
+.navbar- .logo img {
+    height: 38px;
+    width: auto;
+    margin: 0;
+    /* Inversion supprimée pour préserver les couleurs d'origine du logo */
+    transition: transform 0.3s ease;
+}
+
+.navbar- .logo img:hover {
+    transform: scale(1.03);
+}
+
+.navbar- ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar- ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.navbar- ul li a:hover {
+    color: var(--accent-blue);
+    opacity: 1;
+}
+
+.navbar- .menu-toggle {
+    display: none;
+    font-size: 1.6em;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar- .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 9999;
     }
-
-
-    .navbar- {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: var(--bg-nb);
-        transition: all 0.5s ease;
-        border-radius: ease-in-out;
-
-        z-index: 1000;
-        cursor: pointer;
-
-    }
-
-    .navbar-:hover {
-        background: var(--nbscr);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.567);
-        margin-top: 10px;
-        margin-right: 10px;
-        width: 98%;
-        border-radius: 0 50px 50px 0;
-        border-bottom: 1px solid var(--lnbscr);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-
-
-    }
-
-    .navbar-.scrolled {
-        background: linear-gradient(180deg, var(--nbscrop), var(--nbscr));
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 50px rgba(0, 0, 0, 0.567);
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
-        border-bottom: 1px solid var(--lnbscr);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-
-    }
-
-
-
-    .navbar-.scrolled:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.567);
-        margin: 10px;
-        width: 99%;
-        border-radius: 50px;
-        transition: all 0.5s;
-    }
-
-    .navbar- nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 30px;
-    }
-
-    .navbar- .logo img {
-        height: 40px;
-        width: auto;
-        margin: 0;
-        filter: invert(100%);
-        transition: filter 0.5s;
-    }
-
 
     .navbar- ul {
-        list-style: none;
-        display: flex;
-        gap: 25px;
+        position: absolute;
+        top: 65px;
+        right: 15px;
+        width: 220px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--lnbscr);
+        box-shadow: 0 15px 35px rgba(43, 174, 199, 0.15);
+        flex-direction: column;
+        align-items: flex-start;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        border-radius: 20px;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.3s ease-out;
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    .navbar- ul.active {
+        visibility: visible;
+        pointer-events: all;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .navbar- ul li {
+        width: 100%;
+        margin: 8px 0;
     }
 
     .navbar- ul li a {
-        text-decoration: none;
-        color: #1d1d1f;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        transition: 0.3s;
+        display: block;
+        width: 100%;
+        padding: 6px 0;
     }
-
 
     .navbar- ul li a:hover {
-        opacity: 0.7;
+        color: var(--accent-blue);
+        text-decoration: none;
     }
-
-    .navbar- .menu-toggle {
-        display: none;
-        font-size: 1.8em;
-        background: none;
-        border: none;
-        color: #1d1d1f;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .navbar- .menu-toggle {
-            display: block;
-            position: relative;
-            z-index: 9999;
-            color: var(--text-color3);
-        }
-
-        .navbar- ul {
-            position: absolute;
-            top: 65px;
-            right: 0;
-            width: 200px;
-            background: rgb(205, 255, 215);
-            color: #992a99;
-            flex-direction: column;
-            align-items: flex-start;
-            -webkit-backdrop-filter: blur(10px);
-            padding: 15px;
-            display: flex;
-            visibility: hidden;
-            pointer-events: none;
-            border-radius: 0 0 0 25px;
-            transition: transform 0.3s ease-out, visibility 0.3s;
-            transform: translateX(100%);
-        }
-
-        .navbar- ul.active {
-            visibility: visible;
-            pointer-events: all;
-            transform: translateX(0);
-        }
-
-        .navbar- ul li {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .navbar- ul li a:hover {
-            text-decoration: underline;
-        }
-    }
+}

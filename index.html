@@ -2,181 +2,137 @@
 <html lang="fr">
 
 <head>
-    <title>Morgann Music Platforms</title>
+    <title>Morgann Music - Site Officiel</title>
     <meta charset="UTF-8">
+    <link rel="apple-touch-icon" href="/assets/img/Icons/apple-touch-icon.png">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta property="og:image" content="/assets/img/">
-    <meta property="og:description" content="Morgann Music Platforms, tout Morgann Music présentés ici.">
-    <meta name="theme-color" content="#e0ffd6">
+    <meta name="theme-color" content="#e0f4f8">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuMGFYw5U/yKzI5ZqD5v/e10z1x6+3Rz4m0S9K0P8v6C5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icons.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16 .png">
-    <link rel="icon" type="image/ico" sizes="48x48" href="/favicon .ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192s.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512s.png">
-    <link rel="icon" href="apple-touch-iconc.png">
-    <link rel="icon" href="favicon-16x16s.png" type="image/png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="favicon-32x32s.png" type="image/png" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="favicons.ico" type="image/ico" media="(prefers-color-scheme: dark)">
-    <link rel="icon" href="favicon-16x16c.png" type="image/png" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="favicon-32x32c.png" type="image/png" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <link rel="stylesheet" href="/assets/footer/footer.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Poppins:wght@400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="faviconc.ico" type="image/ico" media="(prefers-color-scheme: light)">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/footer/footer.css">
+
+    <!-- SCHEMA.ORG (JSON-LD) POUR GOOGLE KNOWLEDGE GRAPH -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MusicGroup",
+          "@id": "https://mm-cp.uk/#artist",
+          "name": "Morgann Music",
+          "alternateName": "Morgann Rachedi",
+          "url": "https://mm-cp.uk",
+          "genre": ["Instrumental", "Music"],
+          "sameAs": [
+            "https://music.apple.com/fr/artist/morgann-music/1820890727",
+            "https://open.spotify.com/intl-fr/artist/0WJlJdaavSKPNoCSSHb8OC",
+            "https://www.youtube.com/@Morgann.Music_m",
+            "https://www.tiktok.com/@morgannmusic"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://mm-cp.uk/#person",
+          "name": "Morgann Rachedi",
+          "alternateName": "Morgann Music",
+          "url": "https://mm-cp.uk",
+          "birthPlace": {
+            "@type": "Place",
+            "name": "Vienne, France"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Condrieu, France"
+          },
+          "sameAs": [
+            "https://music.apple.com/fr/artist/morgann-music/1820890727",
+            "https://open.spotify.com/intl-fr/artist/0WJlJdaavSKPNoCSSHb8OC",
+            "https://www.youtube.com/@Morgann.Music_m",
+            "https://www.tiktok.com/@morgannmusic"
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
     <div id="navbar-container"></div>
-    <script src="/assets/js/navbar.js"></script>
+    <script src="assets/js/navbar.js"></script>
 
-    <section class="accueil">
-        <div class="accueil-content">
-            <h1>Voici Morgann Music Platforms.</h1>
-            <p>Découvrez-y toutes les branche et Morgann Music.</p>
-
-        </div>
-    </section>
-
-    <section class="entete">
-        <div class="entete-content">
-            <img src="https://toolost.s3.us-east-2.amazonaws.com/convertedArtwork/13c665fd9d5b461f91420890c6e195bb.jpg"
-                alt="Last release background">
-            <div class="trucnuch">
-
-                <h1>Fatigué</h1>
-                <h2>Morgann Music</h2>
-                <p>Disponible sur toutes vos plateformes</p>
-
-                <a href="https://music.apple.com/fr/album/fatigu%C3%A9/6796400197">Apple Music</a>
-                <a href="https://open.spotify.com/intl-fr/album/03BaVufOQTP0c5raZilgpn">Spotify</a>
+    <header class="hero-header">
+        <div class="hero-content">
+            <div class="logo-wrapper">
+                <img src="logoam.png" alt="Morgann Music Logo" class="main-logo">
             </div>
+            <p id="artist-description" class="artist-desc">Chargement des informations...</p>
         </div>
+    </header>
 
-    </section>
-
-
-    <div class="next-releases-container">
-        <section class="next-release-1">
-            <img src="https://toolost.s3.us-east-2.amazonaws.com/convertedArtwork/13c665fd9d5b461f91420890c6e195bb.jpg"
-                alt="End of an era background" class="next-release-bg-img">
-            <div class="next-release-content">
-                <div class="release-date-badge">
-                    <span class="day">1<sup>er</sup></span>
-                    <div class="month-year">
-                        <span class="month">SEPTEMBRE</span>
-                        <span class="year">2026</span>
+    <!-- SECTION 1 : DERNIÈRE SORTIE -->
+    <section class="release-section" id="last-release-section">
+        <div class="section-container">
+            <div class="release-card">
+                <div class="cover-wrapper" id="last-cover-container">
+                    <img id="last-cover" src="" alt="Pochette dernière sortie" class="hidden">
+                    <video id="last-motion" autoplay loop muted playsinline preload="metadata" class="hidden"></video>
+                    <div id="last-cover-skeleton" class="skeleton cover-skeleton"></div>
+                </div>
+                <div class="release-details">
+                    <span class="status-tag tag-last">Dernière Sortie</span>
+                    <h2 id="last-title" class="loading-text">--</h2>
+                    <h3 id="last-artist" class="loading-text">--</h3>
+                    <p class="release-subtext">Disponible dès maintenant sur vos plateformes d'écoute.</p>
+                    <div class="buttons-group" id="last-links">
+                        <a href="#" target="_blank" id="last-spotify" class="btn btn-spotify hidden"><i
+                                class="fa-brands fa-spotify"></i> Spotify</a>
+                        <a href="#" target="_blank" id="last-apple" class="btn btn-apple hidden"><i
+                                class="fa-brands fa-apple"></i> Apple Music</a>
                     </div>
                 </div>
-                <h2>Fatigué,</h2>
-                <h1>Pas le temps d'être fatigué, c'est reparti.</h1>
-                <div class="calendar-buttons-group">
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Fatigu%C3%A9%20-%20Pas%20le%20temps%20d%27%C3%AAtre%20fatigu%C3%A9%2C%20c%27est%20reparti.&dates=20260901T000000Z/20260902T000000Z&details=Nouvelle%20sortie%20musicale%20de%20Morgann%20Music%20%3A%20Fatigu%C3%A9.&sf=true&output=xml"
-                        target="_blank" class="calendar-button google-calendar">
-                        <i class="fa-brands fa-google"></i> Google Calendar
-                    </a>
-                    <a href="assets/calendars/end-of-an-era.ics" target="_blank" class="calendar-button apple-calendar">
-                        <i class="fa-brands fa-apple"></i> Apple Calendar
-                    </a>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="next-release-2">
-            <img src="https://toolost.s3.us-east-2.amazonaws.com/convertedArtwork/0c0acd0cbfe4408898ef23a81d8c2f70.jpg"
-                alt="Open Road background" class="next-release-bg-img">
-            <div class="next-release-content">
-                <div class="release-date-badge">
-                    <span class="day">31</span>
-                    <div class="month-year">
-                        <span class="month">OCTOBRE</span>
-                        <span class="year">2026</span>
+    <!-- SECTION 2 : PROCHAINE SORTIE -->
+    <section class="release-section" id="next-release-section">
+        <div class="section-container">
+            <div class="release-card reverse">
+                <div class="cover-wrapper" id="next-cover-container">
+                    <img id="next-cover" src="" alt="Pochette prochaine sortie" class="hidden">
+                    <video id="next-motion" autoplay loop muted playsinline preload="metadata" class="hidden"></video>
+                    <div id="next-cover-skeleton" class="skeleton cover-skeleton"></div>
+                </div>
+                <div class="release-details">
+                    <div class="date-badge hidden" id="next-date-box">
+                        <span class="date-day" id="next-day">--</span>
+                        <div class="date-month-year">
+                            <span class="date-month" id="next-month">--</span>
+                            <span class="date-year" id="next-year">--</span>
+                        </div>
+                    </div>
+                    <h2 id="next-title" class="loading-text">--</h2>
+                    <h3 id="next-artist" class="loading-text">--</h3>
+                    <p class="release-subtext">Projet à venir. Bloquez la date sur votre calendrier !</p>
+                    <div class="buttons-group">
+                        <a id="next-gcal" href="#" target="_blank" class="btn btn-calendar hidden"><i
+                                class="fa-brands fa-google"></i> Google Calendar</a>
                     </div>
                 </div>
-                <h2>Afterglow</h2>
-                <h1>Pour adoucir la fin de l'été.</h1>
-                <div class="calendar-buttons-group">
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Afterglow%20-%20Pour%20adoucir%20la%20fin%20de%20l%27%C3%A9t%C3%A9.&dates=20260901T000000Z/20260902T000000Z&details=Nouvelle%20sortie%20musicale%20de%20Morgann%20Music%20%3A%20Afterglow.&sf=true&output=xml"
-                        target="_blank" class="calendar-button google-calendar">
-                        <i class="fa-brands fa-google"></i> Google Calendar
-                    </a>
-                    <a href="assets/calendars/open-road.ics" target="_blank" class="calendar-button apple-calendar">
-                        <i class="fa-brands fa-apple"></i> Apple Calendar
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <section class="mmcp">
-        <div class="mmcp-content">
-            <h1>Morgann Music CP.</h1>
-            <p>Découvrez Morgann Music CP, la branche de distribution musicale de Morgann Music Platforms, une
-                plateforme dédiée a l'accompagnement des artistes dans leur carrière musicale, offrant des services de
-                distribution, de promotion et de gestion pour les artistes indépendants.</p>
-            <img src="assets/img/Logos/logo-rose.svg" alt="Morgann Music CP Logo">
-            <div class="mmcp-buttons">
-                <a href="https://mm-cp.uk" target="_blank" class="mmcp-button visit-website">
-                    Visiter le site
-                </a>
-                <a href="https://mm-cp.uk/mentions-legales" target="_blank" class="mmcp-button instagram">
-                    Mentions Légales
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="litualai">
-        <div class="litualai-content">
-            <h1>Litual AI.</h1>
-            <p>Découvrez Litual AI, la branche d'intelligence artificielle de Morgann Music Platforms, une plateforme
-                dédiée à l'exploration et au développement de solutions d'intelligence artificielle pour l'industrie
-                musicale, offrant des outils innovants pour les artistes, les producteurs et les professionnels de la
-                musique.</p>
-            <p class="by">Par Morgann AI CP</p>
-            <img src="assets/img/litual.png" alt="Litual AI Logo">
-            <div class="litualai-buttons">
-                <a href="https://litual.ai.mm-cp.uk" target="_blank" class="litualai-button visit-website">
-                    Visiter le site
-                </a>
-                <a href="https://litual.ai.mm-cp.uk/ia" target="_blank" class="litualai-button instagram">
-                    Chattez avec Litual !
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mml">
-        <div class="mml-content">
-            <h1>Morgann Music Link</h1>
-            <p>Morgann Music Link, anciennement Morgann Music Send, est la branche de partage des lien de Morgann Music
-                CP. Connecté à son catalogue, les équipes MMCP se chargent de trouver les liens vers les plateformes au
-                plus vite après (et meme avant) leur sortie.</p>
-            <img src="assets/img/linkclair.png" alt="Morgann Music Link Logo">
-            <div class="mml-buttons">
-                <a href="https://link.morgannmusic.uk" target="_blank" class="mml-button visit-website">
-                    Visiter le site
-                </a>
             </div>
         </div>
     </section>
 
     <div id="footer-container"></div>
-    <script src="/assets/js/footer.js"></script>
+    <script src="assets/js/footer.js"></script>
     <script src="index.js"></script>
-    <script src="/assets/js/gsap.js"></script>
 </body>
 
 </html>
