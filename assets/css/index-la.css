@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Giker';
+    src: url('../font/giker/Gliker-Regular.woff2') format('woff2'),
+         url('../font/giker/Gliker-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --bg-accueil: #FCEB9B;
+    --txt-fn: #131F16;
+    }
+        
+
+
+        
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+        
+    body {
+        min-height: 200vh;
+        background-color: var(--bg-accueil);
+        color: var(--text-color-primary);
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 1px;
+    }
+
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-blur: blur(24px);
+    --text-main: #1d1d1f;
+    --text-secondary: #515154;
+    --accent-color: #ffe586; 
+    --accent-hover: #ffd16e;
+    --radius-large: 28px;
+    --radius-medium: 18px;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+
+
+
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 120px;
+}
+
+.intro-section, 
+.design-section, 
+.dev-section, 
+.timeline-section, 
+.stats-section {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-large);
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: var(--transition-smooth);
+}
+
+.intro-section:hover, 
+.design-section:hover, 
+.dev-section:hover, 
+.timeline-section:hover, 
+.stats-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(142, 134, 255, 0.1);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.8px;
+    background: linear-gradient(90deg, var(--text-main), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-left: 28px;
+    margin-top: 30px;
+    border-left: 2px solid var(--glass-border);
+}
+
+.timeline-event {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-medium);
+    padding: 24px;
+    transition: var(--transition-smooth);
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 32px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-color);
+    transition: var(--transition-smooth);
+}
+
+.timeline-event:hover::before {
+    transform: scale(1.3);
+    background: var(--text-main);
+}
+
+.event-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+}
+
+.timeline-event h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.timeline-event p {
+    font-size: 1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-medium);
+    padding: 32px 24px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.02);
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Gasoek One', sans-serif;
+    font-size: 3.2rem;
+    color: var(--text-main);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+    .history-container {
+        gap: 32px;
+        padding: 15px;
+    }
+    .intro-section, 
+    .design-section, 
+    .dev-section, 
+    .timeline-section, 
+    .stats-section {
+        padding: 24px;
+        border-radius: 22px;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    .stat-number {
+        font-size: 2.6rem;
+    }
+}

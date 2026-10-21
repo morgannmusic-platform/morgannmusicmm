@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Morgann Music//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:20260901T000000Z-fatigue@morgannmusic.uk
+DTSTAMP:20260725T120000Z
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260902
+SUMMARY:Fatigué - Pas le temps d'être fatigué, c'est reparti.
+DESCRIPTION:Nouvelle sortie musicale de Morgann Music : Fatigué.
+END:VEVENT
+END:VCALENDAR

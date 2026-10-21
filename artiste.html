@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Morgann Music - Morgann Music Platforms</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:image" content="/assets/img/">
+    <meta property="og:description" content="Morgann Music Platforms, tout Morgann Music présentés ici.">
+    <meta name="theme-color" content="#e0ffd6">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuMGFYw5U/yKzI5ZqD5v/e10z1x6+3Rz4m0S9K0P8v6C5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icons.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16 .png">
+    <link rel="icon" type="image/ico" sizes="48x48" href="/favicon .ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192s.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512s.png">
+    <link rel="icon" href="apple-touch-iconc.png">
+    <link rel="icon" href="favicon-16x16s.png" type="image/png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicon-32x32s.png" type="image/png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicons.ico" type="image/ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="favicon-16x16c.png" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="favicon-32x32c.png" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/footer/footer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="faviconc.ico" type="image/ico" media="(prefers-color-scheme: light)">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <script src="/assets/js/navbar.js"></script>
+
+    <section class="accueil-artiste">
+        <img src="assets/img/artiste.png" alt="Morgann Music Artiste baniere">
+        <div class="accueil-artiste-content">
+            <h1>Morgann Music</h1>
+            <p>Des vibes a l'état brut.</p>
+        </div>
+    </section>
+
+    <!-- Section Featuring mise à jour dynamiquement -->
+    <section class="dernierement-feat">
+        <div class="dernierement-feat-content">
+            <h2>Dernièrement en featuring</h2>
+            <div id="latest-feat-container">
+                <p style="padding: 20px; text-align: center;">Chargement de la dernière sortie en feat...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Solo mise à jour dynamiquement -->
+    <section class="dernierement-solo">
+        <div class="dernierement-feat-content">
+            <h2>Dernièrement en solo</h2>
+            <div class="feat-card">
+                <img src="/pdp fatigué.png" alt="Morgann Music" class="photodeprofil-feat">
+                <h2>Morgann Music</h2>
+            </div>
+
+            <div id="latest-solo-release" class="dernieresortie-feat">
+                <p style="padding: 20px; text-align: center;">Chargement de la dernière sortie solo...</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="next-releases-container">
+        <section class="next-release-1">
+            <img src="https://toolost.s3.us-east-2.amazonaws.com/convertedArtwork/e98c20bae8b8485abf1e2b0c0ef69574.jpg"
+                alt="End of an era background" class="next-release-bg-img">
+            <div class="next-release-content">
+                <div class="release-date-badge">
+                    <span class="day">1<sup>er</sup></span>
+                    <div class="month-year">
+                        <span class="month">SEPTEMBRE</span>
+                        <span class="year">2026</span>
+                    </div>
+                </div>
+                <h2>Fatigué,</h2>
+                <h1>Pas le temps d'être fatigué, c'est reparti.</h1>
+                <div class="calendar-buttons-group">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Fatigu%C3%A9%20-%20Pas%20le%20temps%20d%27%C3%AAtre%20fatigu%C3%A9%2C%20c%27est%20reparti.&dates=20260901T000000Z/20260902T000000Z&details=Nouvelle%20sortie%20musicale%20de%20Morgann%20Music%20%3A%20Fatigu%C3%A9.&sf=true&output=xml"
+                        target="_blank" class="calendar-button google-calendar">
+                        <i class="fa-brands fa-google"></i> Google Calendar
+                    </a>
+                    <a href="assets/calendars/end-of-an-era.ics" target="_blank" class="calendar-button apple-calendar">
+                        <i class="fa-brands fa-apple"></i> Apple Calendar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-release-2">
+            <img src="https://toolost.s3.us-east-2.amazonaws.com/convertedArtwork/0c0acd0cbfe4408898ef23a81d8c2f70.jpg"
+                alt="Open Road background" class="next-release-bg-img">
+            <div class="next-release-content">
+                <div class="release-date-badge">
+                    <span class="day">31</span>
+                    <div class="month-year">
+                        <span class="month">OCTOBRE</span>
+                        <span class="year">2026</span>
+                    </div>
+                </div>
+                <h2>Afterglow</h2>
+                <h1>Pour adoucir la fin de l'été.</h1>
+                <div class="calendar-buttons-group">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Afterglow%20-%20Pour%20adoucir%20la%20fin%20de%20l%27%C3%A9t%C3%A9.&dates=20260901T000000Z/20260902T000000Z&details=Nouvelle%20sortie%20musicale%20de%20Morgann%20Music%20%3A%20Afterglow.&sf=true&output=xml"
+                        target="_blank" class="calendar-button google-calendar">
+                        <i class="fa-brands fa-google"></i> Google Calendar
+                    </a>
+                    <a href="assets/calendars/open-road.ics" target="_blank" class="calendar-button apple-calendar">
+                        <i class="fa-brands fa-apple"></i> Apple Calendar
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="next-releases-container">
+        <section class="next-release-1" style="border-right: 5px solid #a796b4;">
+            <img src="pdp fatigué.png" alt="End of an era background" class="next-release-bg-img">
+        </section>
+
+        <section class="next-release-1" style="background: #6db69c; border: none;">
+            <div class="next-release-content">
+                <h2>Depuis Juillet</h2>
+                <h1>Photo de profil</h1>
+            </div>
+        </section>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/footer.js"></script>
+    <script src="index.js"></script>
+    <script src="/assets/js/gsap.js"></script>
+
+    <!-- Script de mise à jour automatique des sorties (Solo & Feat) via l'API iTunes -->
+    <script>
+        async function fetchReleases() {
+            // Ton ID artiste Apple Music
+            const artistId = '1820890727';
+            const url = `https://itunes.apple.com/lookup?id=${artistId}&entity=album&country=fr`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                const collections = data.results.filter(item => item.wrapperType === 'collection');
+
+                if (collections.length === 0) {
+                    document.getElementById('latest-solo-release').innerHTML = '<p style="padding: 20px; text-align: center;">Aucune sortie trouvée.</p>';
+                    document.getElementById('latest-feat-container').innerHTML = '<p style="padding: 20px; text-align: center;">Aucun featuring trouvé.</p>';
+                    return;
+                }
+
+                // Tri chronologique du plus récent au plus ancien
+                collections.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+
+                // --- 1. GESTION DE LA SORTIE SOLO ---
+                const soloReleases = collections.filter(item => {
+                    const artist = item.artistName.toLowerCase();
+                    const title = item.collectionName.toLowerCase();
+                    const hasFeatInArtist = artist.includes('&') || artist.includes(',') || artist.includes(' feat') || artist.includes(' x ');
+                    const hasFeatInTitle = title.includes('feat') || title.includes('ft.') || title.includes('with ');
+                    return !hasFeatInArtist && !hasFeatInTitle;
+                });
+
+                if (soloReleases.length > 0) {
+                    const latestSolo = soloReleases[0];
+                    const artworkUrlSolo = latestSolo.artworkUrl100.replace('100x100bb', '600x600bb');
+                    const dateSolo = new Date(latestSolo.releaseDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+
+                    document.getElementById('latest-solo-release').innerHTML = `
+                        <div class="s-f">
+                            <div class="pochette-feat">
+                                <img src="${artworkUrlSolo}" alt="Pochette de ${latestSolo.collectionName}">
+                            </div>
+                            <div class="s-f-info">
+                                <h1>${latestSolo.collectionName}</h1>
+                                <p class="artist-name">Sur toutes vos plateformes depuis le ${dateSolo} !</p>
+                            </div>
+                        </div>
+                        <div class="listento">
+                            <a href="${latestSolo.collectionViewUrl}" target="_blank">
+                                <img src="/assets/img/apple.webp" alt="Apple Music">
+                                <p>Écouter sur Apple Music</p>
+                            </a>
+                        </div>
+                    `;
+                }
+
+                // --- 2. GESTION DE LA SORTIE EN FEATURING ---
+                const featReleases = collections.filter(item => {
+                    const artist = item.artistName.toLowerCase();
+                    const title = item.collectionName.toLowerCase();
+                    const hasFeatInArtist = artist.includes('&') || artist.includes(',') || artist.includes(' feat') || artist.includes(' x ');
+                    const hasFeatInTitle = title.includes('feat') || title.includes('ft.') || title.includes('with ');
+                    return hasFeatInArtist || hasFeatInTitle;
+                });
+
+                if (featReleases.length > 0) {
+                    const latestFeat = featReleases[0];
+                    const artworkUrlFeat = latestFeat.artworkUrl100.replace('100x100bb', '600x600bb');
+                    const dateFeat = new Date(latestFeat.releaseDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+
+                    document.getElementById('latest-feat-container').innerHTML = `
+                        <div class="feat-card">
+                            <img src="${artworkUrlFeat}" alt="${latestFeat.artistName}" class="photodeprofil-feat">
+                            <h2>${latestFeat.artistName}</h2>
+                        </div>
+                        <div class="dernieresortie-feat">
+                            <div class="s-f">
+                                <div class="pochette-feat">
+                                    <img src="${artworkUrlFeat}" alt="Pochette de ${latestFeat.collectionName}">
+                                </div>
+                                <div class="s-f-info">
+                                    <h1>${latestFeat.collectionName}</h1>
+                                    <p class="artist-name">Sur toutes vos plateformes depuis le ${dateFeat} !</p>
+                                </div>
+                            </div>
+                            <div class="listento">
+                                <a href="${latestFeat.collectionViewUrl}" target="_blank">
+                                    <img src="/assets/img/apple.webp" alt="Apple Music">
+                                    <p>Écouter sur Apple Music</p>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('latest-feat-container').innerHTML = '<p style="padding: 20px; text-align: center;">Aucun featuring récent sur Apple Music.</p>';
+                }
+
+            } catch (error) {
+                console.error("Erreur de chargement des données iTunes:", error);
+                document.getElementById('latest-solo-release').innerHTML = '<p style="padding: 20px; text-align: center;">Erreur de chargement.</p>';
+                document.getElementById('latest-feat-container').innerHTML = '<p style="padding: 20px; text-align: center;">Erreur de chargement.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchReleases);
+    </script>
+</body>
+
+</html>

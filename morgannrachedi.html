@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>À propos — Morgann Rachedi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:description" content="Découvrez le parcours, la vision et les projets de Morgann Rachedi.">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Typographies très lisibles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuMGFYw5U/yKzI5ZqD5v/e10z1x6+3Rz4m0S9K0P8v6C5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Assets globaux -->
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/footer/footer.css">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #d7f1e0;
+            ;
+            --bg-alt: #f8fafc00;
+            --card-bg: #ffffffbe;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-color: #003208;
+            --accent-light: #eff6ff00;
+            --font-title: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-title);
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        /* Tag Litual AI */
+        .litual-tag-wrapper {
+            display: flex;
+            justify-content: center;
+            padding-top: 6rem;
+        }
+
+        .litual-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .litual-badge img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 4rem 2rem 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Layout global large */
+        .section-container {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        /* Grid à 4 / 3 colonnes pour remplir l'espace */
+        .grid-wide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 36px;
+            padding: 2.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25 ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        /* Horizontal Scroll Timeline */
+        .timeline-wrapper {
+            background-color: var(--bg-alt);
+            padding: 6rem 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-container {
+            display: flex;
+            gap: 2rem;
+            padding: 0 4rem;
+            width: max-content;
+        }
+
+        .timeline-card {
+            width: 380px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 36px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            flex-shrink: 0;
+        }
+
+        .timeline-year {
+            color: var(--accent-color);
+            font-family: var(--font-title);
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-card p {
+            color: var(--text-muted);
+            font-size: 0.975rem;
+        }
+
+        /* Stack Technique Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 36px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .tech-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        /* Citation Large */
+        .quote-banner {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: var(--accent-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quote-banner blockquote {
+            font-family: var(--font-title);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-main);
+            max-width: 950px;
+            margin: 0 auto;
+            line-height: 1.35;
+        }
+
+        /* Redirection CTA */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--text-main);
+            color: #ffffff;
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <script src="/assets/js/navbar.js"></script>
+
+    <!-- Tag d'authenticité Litual AI -->
+    <div class="litual-tag-wrapper">
+        <div class="litual-badge">
+            <img src="https://mm-cp.uk/assets/img/litual/litual-logo.png" alt="Litual AI Logo">
+            <span>Textes générés avec les connaissances de Litual AI</span>
+        </div>
+    </div>
+
+    <!-- En-tête / Hero -->
+    <section class="hero-section">
+        <h1 class="hero-title gsap-hero">Morgann Rachedi 🎹⚡️</h1>
+        <p class="hero-subtitle gsap-hero">
+            Producteur de musique, développeur web et créateur d'outils numériques. Découvrez son univers, son histoire
+            depuis Condrieu et l'ensemble de ses projets innovants.
+        </p>
+    </section>
+
+    <!-- Informations & Histoire -->
+    <section class="section-container">
+        <div class="section-header gsap-reveal">
+            <h2>Qui est Morgann Rachedi ? 🤔</h2>
+            <p>Un profil polyvalent guidé par la passion de la musique et de la technologie.</p>
+        </div>
+        <div class="grid-wide">
+            <div class="card gsap-reveal">
+                <div class="card-emoji">🎧</div>
+                <h3>Créateur Musical</h3>
+                <p>Né le 13 janvier 2013 à Vienne (Isère) et résidant à Condrieu, Morgann débute sa production musicale
+                    le 20 mars 2024 avec le morceau "Ma Musique" sur YouTube. Il continue depuis à composer des titres
+                    instrumentaux distribués à grande échelle.</p>
+            </div>
+            <div class="card gsap-reveal">
+                <div class="card-emoji">💻</div>
+                <h3>Développeur & Coder</h3>
+                <p>Passionné par l'écosystème Apple et l'informatique, il apprend le code en autonomie et crée des
+                    plateformes complexes, d'abord sur un ancien iMac puis sur son MacBook 12 pouces de 2017.</p>
+            </div>
+            <div class="card gsap-reveal">
+                <div class="card-emoji">🧠</div>
+                <h3>Fonctionnement TDAH</h3>
+                <p>Diagnostiqué TDAH, Morgann canalise son hyperactivité et sa curiosité constante dans l'apprentissage
+                    rapide de nouveaux langages, la conception logicielle et la création de projets ambitieux.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets écosystème -->
+    <section class="section-container"
+        style="background-color: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="section-header gsap-reveal">
+            <h2>L'Écosystème Morgann Music 🚀</h2>
+            <p>Les différentes branches et projets développés pour la musique et le web.</p>
+        </div>
+        <div class="grid-wide">
+            <div class="card gsap-reveal">
+                <div class="card-emoji">📦</div>
+                <h3>Morgann Music CP</h3>
+                <p>Label indépendant et distributeur musical offrant un accompagnement complet et une infrastructure de
+                    diffusion pour les artistes sur toutes les plateformes de streaming.</p>
+            </div>
+            <div class="card gsap-reveal">
+                <div class="card-emoji">🤖</div>
+                <h3>Litual AI</h3>
+                <p>Anciennement Morgann Music AI, Litual AI est la branche d'intelligence artificielle dédiée aux
+                    solutions innovantes et aux outils conversationnels interactifs.</p>
+            </div>
+            <div class="card gsap-reveal">
+                <div class="card-emoji">🔗</div>
+                <h3>Morgann Music Link</h3>
+                <p>Anciennement Morgann Music Send, ce service permet de centraliser et de partager instantanément les
+                    liens vers toutes les plateformes d'écoute dès la sortie des morceaux.</p>
+            </div>
+            <div class="card gsap-reveal">
+                <div class="card-emoji">🏎️</div>
+                <h3>Rhône Valley Racers</h3>
+                <p>Projet de jeu vidéo actuellement en cours de développement en collaboration avec sa cousine Elia
+                    Bravos Germond, combinant conception graphique et programmation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chronologie / Timeline -->
+    <section class="timeline-wrapper">
+        <div class="section-header gsap-reveal">
+            <h2>Chronologie du Parcours ⏳</h2>
+            <p>Les étapes clés du développement des projets</p>
+        </div>
+        <div class="timeline-container" id="timeline">
+            <div class="timeline-card">
+                <div class="timeline-year">20, Mar 2024 🎵</div>
+                <h3>Premier Titre</h3>
+                <p>Publication du morceau "Ma Musique" sur la chaîne YouTube Morgann Musique, marquant le lancement
+                    officiel du projet musical.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-year">2025 🎨</div>
+                <h3>Identité & Outils</h3>
+                <p>Évolution du nom de la chaîne vers Morgann Music, création du premier site de liens et structuration
+                    de la marque globale.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-year">2026 🌐</div>
+                <h3>Expansion Serveur & Web</h3>
+                <p>Lancement de Morgann Music CP, migration de Morgann Music AI vers Litual AI, et mise en place d'une
+                    infrastructure cloud avancée.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-year">Futur 🕹️</div>
+                <h3>Gaming & Innovation</h3>
+                <p>Finalisation du jeu vidéo Rhône Valley Racers et développement continu des services d'intelligence
+                    artificielle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies utilisées -->
+    <section class="section-container">
+        <div class="section-header gsap-reveal">
+            <h2>Technologies & Stack 🛠️</h2>
+            <p>Les outils et frameworks utilisés pour faire tourner les services.</p>
+        </div>
+        <div class="tech-grid gsap-reveal">
+            <div class="tech-item"><i class="fa-brands fa-cloudflare"></i> Cloudflare Workers, Pages, D3 & R2</div>
+            <div class="tech-item"><i class="fa-brands fa-github"></i> GitHub Repostories & Actions</div>
+            <div class="tech-item"><i class="fa-solid fa-fire"></i> Firebase Auth & Storage</div>
+            <div class="tech-item"><i class="fa-solid fa-database"></i>SwiftUI & C</div>
+            <div class="tech-item"><i class="fa-brands fa-js"></i> JavaScript & GSAP</div>
+            <div class="tech-item"><i class="fa-brands fa-apple"></i> macOS & Apple Ecosystem</div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <section class="quote-banner">
+        <blockquote class="gsap-reveal">
+            « Utiliser la technologie et la passion pour construire des outils indépendants, accessibles et performants.
+            » ✨
+        </blockquote>
+    </section>
+
+
+
+    <div id="footer-container"></div>
+    <script src="/assets/js/footer.js"></script>
+
+    <!-- Animations GSAP -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation Hero
+        gsap.from(".gsap-hero", {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Revelations au scroll
+        gsap.utils.toArray(".gsap-reveal").forEach((element) => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.8,
+                y: 30,
+                opacity: 0,
+                ease: "power2.out"
+            });
+        });
+
+        // Défilement horizontal de la chronologie
+        const timelineContainer = document.getElementById("timeline");
+        if (timelineContainer && window.innerWidth > 768) {
+            gsap.to(timelineContainer, {
+                x: () => -(timelineContainer.scrollWidth - window.innerWidth + 100),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".timeline-wrapper",
+                    pin: true,
+                    scrub: 1,
+                    end: () => "+=" + timelineContainer.scrollWidth
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
