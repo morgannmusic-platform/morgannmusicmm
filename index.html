@@ -18,17 +18,25 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/footer/footer.css">
 
-    <!-- SCHEMA.ORG (JSON-LD) POUR GOOGLE KNOWLEDGE GRAPH -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://morgannmusic.uk/#organization",
+          "name": "Morgann Music Platforms",
+          "url": "https://morgannmusic.uk"
+        },
+        {
           "@type": "MusicGroup",
-          "@id": "https://mm-cp.uk/#artist",
+          "@id": "https://morgannmusic.uk/#artist",
           "name": "Morgann Music",
           "alternateName": "Morgann Rachedi",
-          "url": "https://mm-cp.uk",
+          "url": "https://morgannmusic.uk",
+          "memberOf": {
+            "@id": "https://morgannmusic.uk/#organization"
+          },
           "genre": ["Instrumental", "Music"],
           "sameAs": [
             "https://music.apple.com/fr/artist/morgann-music/1820890727",
@@ -39,10 +47,10 @@
         },
         {
           "@type": "Person",
-          "@id": "https://mm-cp.uk/#person",
+          "@id": "https://morgannmusic.uk/#person",
           "name": "Morgann Rachedi",
           "alternateName": "Morgann Music",
-          "url": "https://mm-cp.uk",
+          "url": "https://morgannmusic.uk",
           "birthPlace": {
             "@type": "Place",
             "name": "Vienne, France"
@@ -50,13 +58,7 @@
           "homeLocation": {
             "@type": "Place",
             "name": "Condrieu, France"
-          },
-          "sameAs": [
-            "https://music.apple.com/fr/artist/morgann-music/1820890727",
-            "https://open.spotify.com/intl-fr/artist/0WJlJdaavSKPNoCSSHb8OC",
-            "https://www.youtube.com/@Morgann.Music_m",
-            "https://www.tiktok.com/@morgannmusic"
-          ]
+          }
         }
       ]
     }
@@ -76,7 +78,6 @@
         </div>
     </header>
 
-    <!-- SECTION 1 : DERNIÈRE SORTIE -->
     <section class="release-section" id="last-release-section">
         <div class="section-container">
             <div class="release-card">
@@ -101,7 +102,6 @@
         </div>
     </section>
 
-    <!-- SECTION 2 : PROCHAINE SORTIE -->
     <section class="release-section" id="next-release-section">
         <div class="section-container">
             <div class="release-card reverse">

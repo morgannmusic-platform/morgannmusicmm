@@ -18,13 +18,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Assets globaux -->
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/footer/footer.css">
 
-    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://morgannmusic.uk/morgannrachedi.html/#person",
+          "name": "Morgann Rachedi",
+          "alternateName": "Morgann Music",
+          "url": "https://morgannmusic.uk/morgannrachedi.html",
+          "jobTitle": "Fondateur & Développeur",
+          "founder": {
+            "@type": "Organization",
+            "name": "Morgann Music Platforms"
+          },
+          "sameAs": [
+            "https://music.apple.com/fr/artist/morgann-music/1820890727",
+            "https://open.spotify.com/intl-fr/artist/0WJlJdaavSKPNoCSSHb8OC",
+            "https://www.youtube.com/@Morgann.Music_m"
+          ]
+        }
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -64,7 +87,6 @@
             color: var(--text-main);
         }
 
-        /* Tag Litual AI */
         .litual-tag-wrapper {
             display: flex;
             justify-content: center;
@@ -91,7 +113,6 @@
             object-fit: contain;
         }
 
-        /* Hero Section */
         .hero-section {
             padding: 3rem 2rem 4rem 2rem;
             max-width: 1200px;
@@ -115,7 +136,6 @@
             margin: 0 auto;
         }
 
-        /* Layout global */
         .section-container {
             padding: 4.5rem 2rem;
             max-width: 1250px;
@@ -138,7 +158,6 @@
             font-size: 1.1rem;
         }
 
-        /* Grid à 3-4 colonnes */
         .grid-wide {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -176,7 +195,6 @@
             line-height: 1.65;
         }
 
-        /* Timeline horizontale */
         .timeline-wrapper {
             background-color: var(--bg-alt);
             padding: 5.5rem 0;
@@ -224,7 +242,6 @@
             font-size: 0.95rem;
         }
 
-        /* Stack Technique Grid */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -254,7 +271,6 @@
             color: var(--accent-color);
         }
 
-        /* Banner Citation */
         .quote-banner {
             padding: 5.5rem 2rem;
             text-align: center;
@@ -273,7 +289,6 @@
             line-height: 1.4;
         }
 
-        /* CTA Section */
         .cta-section {
             padding: 4.5rem 2rem;
             text-align: center;
@@ -306,7 +321,6 @@
     <div id="navbar-container"></div>
     <script src="assets/js/navbar.js"></script>
 
-    <!-- Tag d'authenticité Litual AI -->
     <div class="litual-tag-wrapper">
         <div class="litual-badge">
             <img src="https://mm-cp.uk/assets/img/litual/litual-logo.png" alt="Litual AI Logo">
@@ -314,7 +328,6 @@
         </div>
     </div>
 
-    <!-- En-tête / Hero -->
     <section class="hero-section">
         <h1 class="hero-title gsap-hero">Morgann Rachedi 🎹⚡️</h1>
         <p class="hero-subtitle gsap-hero">
@@ -323,36 +336,48 @@
         </p>
     </section>
 
-    <!-- Informations & Histoire -->
-    <section class="section-container">
+    <section class="section-container"
+        style="background-color: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="section-header gsap-reveal">
-            <h2>Qui est Morgann Rachedi ? 🤔</h2>
-            <p>Un profil polyvalent guidé par la passion de la musique et de la technologie.</p>
+            <h2>L'Écosystème Morgann Music Platforms 🚀</h2>
+            <p>Les différentes branches et projets développés pour la musique, le web et le jeu vidéo.</p>
         </div>
         <div class="grid-wide">
-            <div class="card gsap-reveal">
-                <div class="card-emoji">🎧</div>
-                <h3>Créateur Musical</h3>
-                <p>Né le 13 janvier 2013 à Vienne (Isère) et résidant à Condrieu, Morgann débute sa production musicale
-                    le 20 mars 2024 avec le morceau "Ma Musique" sur YouTube. Il continue depuis à composer des titres
-                    instrumentaux distribués à grande échelle.</p>
-            </div>
-            <div class="card gsap-reveal">
-                <div class="card-emoji">💻</div>
-                <h3>Développeur & Coder</h3>
-                <p>Passionné par l'écosystème Apple et l'informatique, il apprend le code en autonomie et crée des
-                    plateformes complexes, d'abord sur un ancien iMac puis sur son MacBook 12 pouces de 2017.</p>
-            </div>
-            <div class="card gsap-reveal">
-                <div class="card-emoji">🧠</div>
-                <h3>Fonctionnement TDAH</h3>
-                <p>Diagnostiqué TDAH, Morgann canalise son hyperactivité et sa curiosité constante dans l'apprentissage
-                    rapide de nouveaux langages, la conception logicielle et la création de projets ambitieux.</p>
-            </div>
+            <a href="https://mm-cp.uk" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card gsap-reveal">
+                    <div class="card-emoji">📦</div>
+                    <h3>Morgann Music CP</h3>
+                    <p>Label indépendant et distributeur musical offrant un accompagnement complet et une infrastructure
+                        de diffusion pour les artistes sur toutes les plateformes de streaming.</p>
+                </div>
+            </a>
+            <a href="https://litual.ai.mm-cp.uk" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card gsap-reveal">
+                    <div class="card-emoji">🤖</div>
+                    <h3>Litual AI (Morgann AI CP)</h3>
+                    <p>Développée sous la branche IA, Litual AI (anciennement Morgann Music AI) est l'intelligence
+                        artificielle conversationnelle et analytique intégrée à nos services.</p>
+                </div>
+            </a>
+            <a href="https://dev.mm-cp.uk" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card gsap-reveal">
+                    <div class="card-emoji">💻</div>
+                    <h3>Morgann Dev CP</h3>
+                    <p>La branche de développement logiciel et web qui conçoit l'ensemble des plateformes, outils
+                        d'encodage et architectures cloud du groupe.</p>
+                </div>
+            </a>
+            <a href="https://dev.mm-cp.uk" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="card gsap-reveal">
+                    <div class="card-emoji">🏎️</div>
+                    <h3>Rhône Valley Racers (Morgann Music Games)</h3>
+                    <p>Projet de jeu vidéo de simulation de conduite dans la vallée du Rhône, développé par la branche
+                        Morgann Music Games en collaboration avec Elia Bravos Germond.</p>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Projets écosystème -->
     <section class="section-container"
         style="background-color: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="section-header gsap-reveal">
@@ -387,7 +412,6 @@
         </div>
     </section>
 
-    <!-- Chronologie / Timeline -->
     <section class="timeline-wrapper">
         <div class="section-header gsap-reveal">
             <h2>Chronologie du Parcours ⏳</h2>
@@ -421,23 +445,22 @@
         </div>
     </section>
 
-    <!-- Technologies utilisées -->
+
     <section class="section-container">
         <div class="section-header gsap-reveal">
             <h2>Technologies & Stack 🛠️</h2>
             <p>Les outils et frameworks utilisés pour faire tourner les services.</p>
         </div>
         <div class="tech-grid gsap-reveal">
-            <div class="tech-item"><i class="fa-brands fa-cloudflare"></i> Cloudflare Workers, Pages, D3 & R2</div>
+            <div class="tech-item"><i class="fa-brands fa-cloudflare"></i> Cloudflare Workers, Pages, D1 & R2</div>
             <div class="tech-item"><i class="fa-brands fa-github"></i> GitHub Repositories & Actions</div>
             <div class="tech-item"><i class="fa-solid fa-fire"></i> Firebase Auth & Storage</div>
-            <div class="tech-item"><i class="fa-solid fa-code"></i> SwiftUI & C</div>
-            <div class="tech-item"><i class="fa-brands fa-js"></i> JavaScript & GSAP</div>
+            <div class="tech-item"><i class="fa-solid fa-code"></i> Swift & JavaScript</div>
+            <div class="tech-item"><i class="fa-brands fa-js"></i> GSAP & HTML5/CSS3</div>
             <div class="tech-item"><i class="fa-brands fa-apple"></i> macOS & Apple Ecosystem</div>
         </div>
     </section>
 
-    <!-- Citation -->
     <section class="quote-banner">
         <blockquote class="gsap-reveal">
             « Utiliser la technologie et la passion pour construire des outils indépendants, accessibles et performants.
@@ -448,11 +471,9 @@
     <div id="footer-container"></div>
     <script src="assets/js/footer.js"></script>
 
-    <!-- Animations GSAP -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animation Hero
         gsap.from(".gsap-hero", {
             duration: 1,
             y: 30,
@@ -461,7 +482,6 @@
             ease: "power2.out"
         });
 
-        // Revelations au scroll
         gsap.utils.toArray(".gsap-reveal").forEach((element) => {
             gsap.from(element, {
                 scrollTrigger: {
@@ -476,7 +496,6 @@
             });
         });
 
-        // Défilement horizontal de la chronologie
         const timelineContainer = document.getElementById("timeline");
         if (timelineContainer && window.innerWidth > 768) {
             gsap.to(timelineContainer, {
